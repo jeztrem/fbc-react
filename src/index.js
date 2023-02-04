@@ -1,13 +1,47 @@
-import React from 'react';
+import React, { Children } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Root from "./routes/root";
+import ErrorPage from "./error-page";
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import Contact from './Contact';
+import Beliefs from './Beliefs';
+import Missions from './Missions';
+import Home from './Home';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "beliefs",
+        element: <Beliefs />
+      },
+      {
+        path: "contact",
+        element: <Contact />
+      },
+      {
+        path: "missions",
+        element: <Missions />
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
