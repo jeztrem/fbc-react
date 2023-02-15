@@ -8,6 +8,18 @@ In the project directory, you can run:
 
 ### `npm start`
 
+install npm
+
+### `npm install`
+
+install bootstrap
+
+### `npm i bootstrap`
+
+install react-router-dom
+
+### `npm i react-router-dom`
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
